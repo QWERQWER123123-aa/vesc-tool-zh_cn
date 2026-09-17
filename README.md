@@ -356,7 +356,8 @@ qtcreator qtcreator-doc libqt5serialport5-dev build-essential
 qml-module-qt3d qt3d5-dev qtdeclarative5-dev qtconnectivity5-dev
 qtmultimedia5-dev qtpositioning5-dev libqt5gamepad5-dev
 qml-module-qt-labs-settings qml-module-qt-labs-platform
-libqt5svg5-dev```
+libqt5svg5-dev
+```bash
 
 构建
 qmake -config release "CONFIG += release_lin build_original exclude_fw" make -j$(nproc)
@@ -371,7 +372,7 @@ qmake -config release "CONFIG += release_lin build_original exclude_fw" make -j$
 
 如果你使用 Nix，构建将变得极其简单：
 
-```bash nix run .```
+```bash nix run .```bash
 
 进入开发 Shell（安装所有依赖）
 nix develop
