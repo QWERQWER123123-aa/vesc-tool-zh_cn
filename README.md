@@ -349,7 +349,8 @@ qml-module-qt-labs-folderlistmodel qml-module-qtquick-extras qml-module-qtquick-
 
 #### Ubuntu 18.04 / Debian / Raspbian Buster
 
-```bash sudo apt install qml-module-qt-labs-folderlistmodel
+```bash
+ sudo apt install qml-module-qt-labs-folderlistmodel
 qml-module-qtquick-extras qml-module-qtquick-controls2
 qt5-default libqt5quickcontrols2-5 qtquickcontrols2-5-dev
 qtcreator qtcreator-doc libqt5serialport5-dev build-essential
@@ -357,14 +358,14 @@ qml-module-qt3d qt3d5-dev qtdeclarative5-dev qtconnectivity5-dev
 qtmultimedia5-dev qtpositioning5-dev libqt5gamepad5-dev
 qml-module-qt-labs-settings qml-module-qt-labs-platform
 libqt5svg5-dev
+```
 ```bash
-
 构建
 qmake -config release "CONFIG += release_lin build_original exclude_fw" make -j$(nproc)
 
 运行
 ./build/lin/vesc_tool_7.01
-
+```
 
 > 注：`make -j$(nproc)` 会自动使用所有 CPU 核心并行编译。
 
@@ -372,28 +373,29 @@ qmake -config release "CONFIG += release_lin build_original exclude_fw" make -j$
 
 如果你使用 Nix，构建将变得极其简单：
 
-```bash nix run .```bash
+```bash 
+nix run .
 
 进入开发 Shell（安装所有依赖）
 nix develop
 
 在 Nix 环境中启动 Qt Creator
 nix develop nix run nixpkgs#qtcreator
-
+```
 
 > ⚠️ 当前 Nix Flake 仅支持 x86 Linux 平台。
 
 ### Windows 构建
 
 推荐使用 **MSYS2** 配合 MinGW-w64：
-
+```bash
 MSYS2 中安装依赖
 pacman -S mingw-w64-x86_64-qt5 mingw-w64-x86_64-gcc mingw-w64-x86_64-make
 
 构建
 qmake -config release "CONFIG += release_win exclude_fw" mingw32-make -j8
 
-text
+```
 
 
 
@@ -403,7 +405,7 @@ text
 ```bash
 qmake -config release "CONFIG += release_win exclude_fw" nmake
 
-text
+```
 
 
 
@@ -416,9 +418,9 @@ brew install qt
 
 构建
 qmake -config release "CONFIG += release_macos exclude_fw" make -j8
-
+```
 生成的 .app 位于 build/macos/
-text
+
 
 
 
@@ -431,12 +433,8 @@ text
 使用 Qt for Android 的 qmake
 /path/to/android-qt/bin/qmake -config release
 "CONFIG += release_android exclude_fw" make -j8
-
+```
 生成的 APK 位于 build/android/
-text
-
-
-
 
 架构可选配置：
 - `ANDROID_TARGET_ARCH=armeabi-v7a` （ARMv7，版本号 221）
@@ -450,13 +448,7 @@ iOS 构建需要 macOS + Xcode + Qt for iOS：
 ```bash
 使用 Qt for iOS 的 qmake
 /path/to/ios-qt/bin/qmake -config release "CONFIG += release_ios exclude_fw build_mobile" make -j8
-
-使用 Xcode 打包
-text
-
-
-
-
+```
 ---
 
 ## 命令行参数
@@ -589,7 +581,7 @@ VESC Tool 支持强大的命令行模式，可以在无 GUI 环境下完成自�
 
 从 VESC 加载 QML UI 并使用移动端模式
 ./vesc_tool_7.01 --loadQmlVesc --useMobileUi
-
+```
 
 ---
 
